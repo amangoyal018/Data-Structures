@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int smain()
+int main()
 {
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
@@ -24,6 +24,7 @@ int smain()
 
 
     //efficient Approach
+    //based on binary representation
 
     int x,n;
     cin>>x>>n;
