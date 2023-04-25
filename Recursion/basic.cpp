@@ -8,27 +8,7 @@ int main()
     freopen("output.txt", "w", stdout);
 #endif
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL); 
-
-    int n,k;
-    cin>>n>>k;
-
-
-
-    // 1st approach
-    // int a=(1<<k-1);
-
-    // if(a&n){
-    //     cout<<"yes";
-    // }else{
-    //     cout<<"no";
-    // }
-
-    //2nd approach
-
-    
-
-
+    cin.tie(NULL);
 
     
 
