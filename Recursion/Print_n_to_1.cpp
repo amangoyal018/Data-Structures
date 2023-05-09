@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
+void fun(int n){
+    
+    
+}
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -11,10 +13,9 @@ int main()
 #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
-    
-    
-    
+    int n;
+    cin>>n;
+
     
 
 
