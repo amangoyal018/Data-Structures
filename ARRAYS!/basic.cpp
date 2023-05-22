@@ -1,14 +1,5 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-
-int jos(int n,int k){
-
-    if(n==1){
-        return 0;
-    }
-    return (jos(n-1,k) + k)%n;
-}
 
 
 
@@ -20,12 +11,6 @@ int main()
 #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
-    cout<<jos(5,3);
-    
-    
-
-
-    
+    cout<<"hello";
 
 }

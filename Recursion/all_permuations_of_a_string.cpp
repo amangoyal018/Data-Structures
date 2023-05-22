@@ -29,8 +29,4 @@ int main()
     int n=s.length();
     
     allsubsets(s);
-
-
-    
-
 }

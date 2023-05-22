@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 
@@ -11,6 +11,7 @@ int main()
 #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+    cout<<"hello";
     
     
     
