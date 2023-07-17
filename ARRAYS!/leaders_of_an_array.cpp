@@ -17,6 +17,14 @@ int main()
         cin>>arr[i];
         // cout<<arr[i]<<"\n";
     }
+    int max=-1;
+    for(int i=n-1;i>=0;i--){
+        if(arr[i]>max){
+            cout<<arr[i]<<" ";
+            max=arr[i];
+        }
+
+    }
     
 
 }

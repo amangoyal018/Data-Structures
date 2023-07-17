@@ -25,7 +25,8 @@ int main(){
         freopen("output.txt","w",stdout);
     #endif
     int n;
-    cin>>n;
+    n=10;
+    
     for(int j=0;j<n;j++){
         for(int l=1;l<=n-j-1;l++){
             cout<<" ";

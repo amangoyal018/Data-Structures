@@ -15,8 +15,14 @@ int main()
     int arr[n];
     for(int i=0;i<n;i++){
         cin>>arr[i];
-        // cout<<arr[i]<<"\n";
+        // cout<<arr[i]<<endl;
     }
-    
+    for(int i=0;i<=n/2;i++){
+        swap(arr[i],arr[n-i-1]);
+        cout<<arr[i]<<endl;
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
 
 }

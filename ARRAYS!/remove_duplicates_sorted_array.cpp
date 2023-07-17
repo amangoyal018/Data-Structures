@@ -1,5 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+int duplicate(int *arr,int n){
+    int x=0;
+    for(int i=1;i<n;i++){
+        if(arr[i]!=arr[x]){
+            x++;
+            arr[x]=arr[i];
+        }
+    }
+    for(int i=0;i<=x;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<"\n";
+    return x+1;
+
+}
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -17,6 +33,7 @@ int main()
         cin>>arr[i];
         // cout<<arr[i]<<"\n";
     }
+    cout<<duplicate(arr,n);
     
 
 }

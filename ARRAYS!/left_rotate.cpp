@@ -17,6 +17,17 @@ int main()
         cin>>arr[i];
         // cout<<arr[i]<<"\n";
     }
-    
+    int a=arr[0];
+    for(int i=0;i<n;i++){
+        if(i==n-1){
+            arr[n-1]=a;
+            break;
+        }
+        arr[i]=arr[i+1];
+    }
+    for(int i=0;i<n;i++){
+        // cin>>arr[i];
+        cout<<arr[i]<<" ";
+    }
 
 }

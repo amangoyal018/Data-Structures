@@ -17,6 +17,17 @@ int main()
         cin>>arr[i];
         // cout<<arr[i]<<"\n";
     }
+    int a=min(arr[0],arr[2]);
+    int ans=0;
+    for(int i=1;i<n-1;i++){
+        a=min(arr[i-1],arr[i+1]);
+        if(arr[i]<=a){
+            ans+=(a-arr[i]);
+        }
+        
+    }
+    cout<<ans;
+
     
 
 }

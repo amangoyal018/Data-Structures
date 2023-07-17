@@ -17,6 +17,23 @@ int main()
         cin>>arr[i];
         // cout<<arr[i]<<"\n";
     }
+    int pos=0;
+    for(int i=0;i<n;i++){
+        if(arr[i]){
+            arr[pos]=arr[i];
+            pos++;
+            if(pos-1==i){
+                continue;
+            }
+            arr[i]=0;
+            // swap(arr[i],arr[pos]);
+            // pos++;
+
+        }
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
     
 
 }

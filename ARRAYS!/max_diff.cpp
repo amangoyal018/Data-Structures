@@ -17,6 +17,18 @@ int main()
         cin>>arr[i];
         // cout<<arr[i]<<"\n";
     }
+    int min=arr[0];
+    int diff=arr[1]-arr[0];
+    for(int i=1;i<n;i++){
+        if(arr[i]<min){
+            min=arr[i];
+        }
+        int a=arr[i]-min;
+        if(a>diff){
+            diff=a;
+        }
+    }
+    cout<<diff<<"\n";
     
 
 }
