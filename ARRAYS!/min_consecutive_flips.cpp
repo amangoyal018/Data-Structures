@@ -18,15 +18,25 @@ int main()
         // cout<<arr[i]<<"\n";
     }
     int temp=arr[0];
-    // int ans;
-    int res=arr[0];
+    int cnt=0;
+    bool status=true;
     for(int i=1;i<n;i++){
-        temp=max(temp+arr[i],arr[i]);
-        res=max(temp,res);
-        // temp=ans;
-
+        if(arr[i]!=temp){
+            if(status){
+                cout<<i<<" ";
+                status=false;
+            }else{
+                cout<<"to " <<i-1<<"\n";
+                status=true;
+            }
+            cnt++;
+            temp=arr[i];
+        }
     }
-    cout<<res;
+    if(!status){
+        cout<<"to " <<n-1;
+    }
+    // cout<<cnt;
     
 
 }

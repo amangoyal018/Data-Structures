@@ -11,22 +11,26 @@ int main()
 
     int n;
     cin>>n;
+    int k;cin>>k;
 
     int arr[n];
     for(int i=0;i<n;i++){
         cin>>arr[i];
-        // cout<<arr[i]<<"\n";
     }
-    int temp=arr[0];
-    // int ans;
-    int res=arr[0];
-    for(int i=1;i<n;i++){
-        temp=max(temp+arr[i],arr[i]);
-        res=max(temp,res);
-        // temp=ans;
+    int sum=0;
+    int res=INT_MIN;
+    for(int i=0;i<k;i++){
+        sum+=arr[i];
+    }
+    for(int i=k;i<n;i++){
+        res=max(sum,res);
+        sum+=arr[i];
+        sum-=arr[i-k];
 
+        res=max(sum,res);
     }
     cout<<res;
+
     
 
 }
