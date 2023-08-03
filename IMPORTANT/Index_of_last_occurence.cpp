@@ -31,8 +31,8 @@ int main()
 
         index=(low+high)/2;
         if(arr[index]==x){
-            if(arr[index-1]==x){
-                high=index-1;
+            if(arr[index+1]==x){
+                low=index+1;
                 continue;
             }
             ans=index;

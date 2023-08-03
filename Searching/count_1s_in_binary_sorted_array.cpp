@@ -13,7 +13,8 @@ int main()
     cin>>n;
 
     int x;
-    cin>>x;
+    // cin>>x;
+    x=1;
 
     int arr[n];
     for(int i=0;i<n;i++){
@@ -49,7 +50,11 @@ int main()
 
         }
     }
-    cout<<ans;
+    if(ans==-1){
+        cout<<0;
+        return 0;
+    }
+    cout<<n-ans;
     
     
 

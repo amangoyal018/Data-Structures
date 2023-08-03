@@ -22,30 +22,24 @@ int main()
         // cout<<arr[i]<<"\n";
     }
     int low=0;
-    int high=n-1;
+    int high=6;
     int index=(low+high)/2;
     int ans=-1;
     
 
     while(low<=high){
-
-        index=(low+high)/2;
         if(arr[index]==x){
-            if(arr[index-1]==x){
-                high=index-1;
-                continue;
-            }
             ans=index;
             break;
 
 
         }else if(arr[index]>x){
             high=index-1;
-            // index=(low+high)/2;
+            index=(low+high)/2;
 
         }else if(arr[index]<x){
             low=index+1;
-            // index=(low+high)/2;
+            index=(low+high)/2;
 
         }
     }
