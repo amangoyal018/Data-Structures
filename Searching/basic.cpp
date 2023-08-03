@@ -17,7 +17,7 @@ int main()
         // cout<<arr[i];
         // cout<<arr[i]<<"\n";
     }
-    cout<<"Hello";
+    
     
 
     
