@@ -1,20 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+template <typename T>
+
+T myMax(T x,T y){
+    return (x>y)?x:y;
+}
 int main()
 {
-    #ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-    #endif
+#endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
+    cout<<myMax<int>(3,7)<<endl;
+    cout<<myMax<char>('a','b')<<endl;
+
+
+    
+    
     
 
-    vector<int> v={10,20,30,40,50};
-
-    vector<int>::iterator i=v.begin();
-    cout<<(*i);
+    
 
 }
