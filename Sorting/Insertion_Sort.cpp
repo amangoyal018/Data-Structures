@@ -16,25 +16,27 @@ int main()
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    // cout<<arr[1];
 
-    int index=0;
+    int index=1;
+
     for(int i=1;i<n;i++){
-        int min1=INT_MAX;
-        int loc=-1;
-        for(int j=index;j<n;j++){
-            if(arr[j]<min1){
-                min1=arr[j];
-                loc=j;
+        if(arr[i]>=arr[i-1]){
+            continue;
+        }else{
+            for(int j=i;j>0;j--){
+                if(arr[j]>arr[j-1]){
+                    break;
+                }else{
+                    swap(arr[j],arr[j-1]);
+                }
             }
         }
-        swap(arr[index],arr[loc]);
-        index++;
-        
+        // cout<<"\n";
     }
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
     }
+    
 
     
 
