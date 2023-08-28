@@ -40,6 +40,42 @@ int main()
 
     //efficient
 
+    int left[m-l+1];
+    int right[h-m];
+    for(int i=l;i<=m;i++){
+        left[i-l]=arr[i];
+        // cout<<left[i-l];
+    }
+    for(int i=m+1;i<=h;i++){
+        right[i-m-1]=arr[i];
+        // cout<<right[i-m-1];
+    }
+    int a=0,b=0;
+
+    for(int i=l;i<=h;i++){
+        if(a>m-l){
+            a=m-1;
+            left[a]=INT_MAX;
+        }
+        if(b>=h-m){
+            b=h-m-1;
+            right[b]=INT_MAX;
+        }
+        if(left[a]>=right[b]){
+            arr[i]=right[b];
+            b++;
+        }else{
+            arr[i]=left[a];
+            a++;
+        }
+        
+
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    
+
 
     
 
