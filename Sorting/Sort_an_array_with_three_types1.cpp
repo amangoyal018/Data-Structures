@@ -3,31 +3,28 @@ using namespace std;
 
 
 int Dutch_national_flag_algorithm(int arr[],int l,int h){
-    int low=-1;
-    int mid=-1;
-    int high=-1;
-    for(int i=0;i<=h;i++){
-        if(arr[i]==0){
+    int low=0;
+    int mid=0;
+    int high=h+1;
+
+    while(mid<high){
+        if(arr[mid]==0){
+            swap(arr[mid],arr[low]);
             low++;
             mid++;
-            high++;
-            swap(arr[i],arr[low]);
-        }
-        if(arr[i]==1){
 
+        }else if(arr[mid]==1){
             mid++;
-            high++;
-            swap(arr[i],arr[mid]);
+
+        }else{
+            swap(arr[mid],arr[high-1]);
+            high--;
+
         }
-        if(arr[i]==2){
-            high++;
-            swap(arr[i],arr[high]);
-        }
-        cout<<low<<mid<<high<<endl;
-        if(i==3){
-            break;
-        }
+        
+        
     }
+    
 }
 
 
@@ -46,7 +43,9 @@ int main()
     int arr[n];
     for(int i=0;i<n;i++){
         cin>>arr[i];
+        // cout<<arr[i]<<" ";
     }
+    // cout<<"\n";
     Dutch_national_flag_algorithm(arr,0,n-1);
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";

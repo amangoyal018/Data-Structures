@@ -1,47 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
-int lPartition(int  arr[],int l,int h){
-    // int pivot = arr[h];  
-    // cout<<pivot<<endl;
-    int i = l - 1;
-    for(int j=l;j<=h;j++){
-        if(arr[j]<5){
-            i++;
-            swap(arr[i],arr[j]);
+
+
+int Dutch_national_flag_algorithm(int arr[],int l,int h,int p1,int p2){
+    int low=0;
+    int mid=0;
+    int high=h+1;
+
+    while(mid<high){
+        if(arr[mid]<p1){
+            swap(arr[mid],arr[low]);
+            low++;
+            mid++;
+
+        }else if(arr[mid]>=p1 and arr[mid]<=p2){
+            mid++;
+
+        }else{
+            swap(arr[mid],arr[high-1]);
+            high--;
 
         }
+        
+        
     }
-
-    // i++;
-    // swap(arr[i],arr[h]);
-
-    // for(int i=0;i<=h;i++){
-    //     cout<<arr[i]<<" ";
-    // }
-    return i;
-
+    
 }
-int lPartition2(int  arr[],int l,int h){
-    // int pivot = arr[h];  
-    // cout<<pivot<<endl;
-    int i = l - 1;
-    for(int j=l;j<h;j++){
-        if(arr[j]<=10){
-            i++;
-            swap(arr[i],arr[j]);
 
-        }
-    }
-
-    i++;
-    swap(arr[i],arr[h]);
-
-    // for(int i=0;i<=h;i++){
-    //     cout<<arr[i]<<" ";
-    // }
-    return i;
-
-}
 
 int main()
 {
@@ -51,24 +36,29 @@ int main()
 #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
+    // partition about a pivot
     int n;
     cin>>n;
 
-    // int pivot;
-    // cin>>pivot;
+    int k1;
+    cin>>k1;
 
-    int arr[n];
+    int k2;
+    cin>>k2;
+
+    int arr[n]; 
     for(int i=0;i<n;i++){
         cin>>arr[i];
+        // cout<<arr[i]<<" ";
     }
 
-    int p = lPartition(arr,0,n-1);
-    cout<<p<<endl;
-    lPartition2(arr,p+1,n-1);
+    
+    // cout<<"\n";
+    Dutch_national_flag_algorithm(arr,0,n-1,k1,k2);
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
     }
+    
 
     
 
