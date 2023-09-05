@@ -10,13 +10,14 @@ int main()
 #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
+    int arr[][3] = {10,20,30,40,50,60};
     
     
     
-
     
-
+    
+    
+    
     
 
 }
