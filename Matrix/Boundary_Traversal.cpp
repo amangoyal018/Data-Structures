@@ -2,31 +2,6 @@
 using namespace std;
 
 
-void Transpose( int * arr[],int n ,int m){
-    for(int i=0;i<n;i++){
-        for(int j=i;j<m;j++){
-            swap(arr[i][j],arr[j][i]);
-            // cout<<arr[i][j]<<" "<<arr[j][i]<<"\n";
-
-        }
-    }
-}
-
-void Print(int *arr[],int n,int m){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            cout<<arr[i][j]<<" ";
-
-        }
-        cout<<"\n";
-    }
-}
-
-
-
-
-
-
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -48,6 +23,28 @@ int main()
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
             cin>>arr[i][j];
+            // cout<<arr[i][j];
+        }
+    }
+
+    for(int i = 0 ; i < n-1; i++){
+        if(i!=0){
+            cout<<arr[i][m-1]<<" ";
+            continue;
+        }
+        for(int j = 0; j < m;j++){
+            cout<<arr[i][j]<<" ";
+        }
+
+    }
+
+    for(int i=n-1;i>0;i--){
+        if(i!=n-1){
+            cout<<arr[i][0]<<" ";
+            continue;
+        }
+        for(int j=m-1;j>=0;j--){
+            cout<<arr[i][j]<<" ";
         }
     }
     

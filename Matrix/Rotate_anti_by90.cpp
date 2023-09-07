@@ -50,6 +50,13 @@ int main()
             cin>>arr[i][j];
         }
     }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m/2;j++){
+            swap(arr[i][j],arr[i][m-j-1]);
+        }
+    }
+    Transpose(arr,n,m);
+    Print(arr,n,m);
     
     
     
