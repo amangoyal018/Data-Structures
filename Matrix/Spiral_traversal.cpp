@@ -23,21 +23,30 @@ void Print(int *matrix[],int r,int c){
 }
 
 void Spiral(int *matrix[],int start,int end1,int end2){
+
+
+    // first printing elements of first row and last coloumn
     for(int i = start ; i <= end1 - 1; i++){
+
+        // if i is other than start then we have to print the end element
         if(i!=start){
-            if(start!=end1-1 and i==end1-1){
-                continue;
-            }
             cout<<matrix[i][end2-1]<<" ";
             continue;
         }
+        //else we print the whole row
         for(int j = start; j < end2;j++){
             cout<<matrix[i][j]<<" ";
+            
         }
 
     }
 
+    // printing remaining last row elements and 1st coloumn
+
     for(int i= end1 - 1; i>start;i--){
+        // if row is not last the we print the start element but 
+        // keeping in mid that we have already printed the last element 
+        // therefore if start==end2-1 we continue;
         if(i!=end1-1){
             if(start==end2-1){
                 continue;
@@ -45,17 +54,13 @@ void Spiral(int *matrix[],int start,int end1,int end2){
             cout<<matrix[i][start]<<" ";
             continue;
         }
-        for(int j=end2-1;j>=start;j--){
+        // printint the remaining last row element 
+        for(int j=end2-2;j>=start;j--){
             cout<<matrix[i][j]<<" ";
         }
     }
 
 }
-
-
-
-
-
 
 int main()
 {
@@ -66,38 +71,33 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
+    // taking input
+
     int r,c;
     cin>>r>>c;
-    
+    //declaring a double pointer to create a dynamic sized array
 
     int **matrix = new int *[r];
     for(int i=0;i<r;i++){
         matrix[i] = new int [c];
     }
-    // cout<<matrix[0][0];
     for(int i=0;i<r;i++){
         for(int j=0;j<c;j++){
             cin>>matrix[i][j];
         }
     }
+    //we have to traverse till mid of the matrix
+    //therfore from 0  to (c2+1)/2.
     int index =0;
     int r2=r;
     int c2=c;
-    while(index<(min((r2+1)/2,(c2+1)/2))){
-        // cout<<"hello";
-        
+    while(index<(c2+1)/2){
         Spiral(matrix,index,r,c);
-        index++;
-        // if(index+1==min(c,r)){
-        //     break;
-        // }
+        index++;    
         r--;
         c--;
     }
-    // Spiral(matrix,0,10,2);
-    // Spiral(matrix,1,4,4);
-    // Spiral(matrix,2,3,3);
-
+    
     
     
     
