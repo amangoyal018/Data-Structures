@@ -10,16 +10,18 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-
     int n;
     cin>>n;
-    int arr[n];
+
+    unordered_set<int> s;
+
     for(int i=0;i<n;i++){
-        cin>>arr[i];
+        int a;
+        cin>>a;
+        s.insert(a);
+        
     }
-
-    
-
+    cout<<s.size();
     
     
 }

@@ -18,6 +18,20 @@ int main()
         cin>>arr[i];
     }
 
+    unordered_set<int> s;
+    bool ans = false;
+    int ps = 0; //prefix sum
+    s.insert(ps);
+    for(int i=0;i<n;i++){
+        ps+=arr[i];
+        if(s.count(ps)>0){
+            cout<<"YES";
+            break;
+        }else{
+            s.insert(ps);
+        }
+    }
+
     
 
     

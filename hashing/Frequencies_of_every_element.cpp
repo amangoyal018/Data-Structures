@@ -10,16 +10,20 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-
     int n;
     cin>>n;
-    int arr[n];
+
+
+
+    unordered_map<int,int> m;
     for(int i=0;i<n;i++){
-        cin>>arr[i];
+        int a;
+        cin>>a;
+        m[a]++;
     }
-
-    
-
+    for(auto x : m){
+        cout<<x.first<<" "<<x.second<<"\n";
+    }
     
     
 }
