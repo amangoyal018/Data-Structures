@@ -14,31 +14,28 @@ int main()
     int n;
     cin>>n;
     int arr[n];
+    int k;
+    cin>>k;
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
 
-    unordered_set<int> s;
-
-    for(int i=0;i<n;i++){
-        s.insert(arr[i]);
+    unordered_map<int,int> m;
+    for(int i=0;i<k;i++){
+        m[arr[i]]++;
     }
-
-    int ans =0;
-    for(int i=0;i<n;i++){
-        if(s.count(arr[i]-1)>0){
-            continue;
+    cout<<m.size()<<" ";
+    for(int i=0;i<n-k;i++){
+        
+        if(m[arr[i]]==1){
+            m.erase(arr[i]);
         }else{
-
-            int j = 0;
-            while(s.count(arr[i]+j)>0){
-                j++;
-            }
-            ans=max(ans,j);
+            m[arr[i]]--;
         }
-    
+        m[arr[i+k]]++;
+        cout<<m.size()<<" ";
+            
     }
-    cout<<ans;
 
 
 
