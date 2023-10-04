@@ -10,10 +10,30 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    string s;
-    cin>>s;
+    string s1,s2;
+    cin>>s1>>s2;
 
-    int n = s.length();
+    vector<int> v(26,0);
+
+    for(int i=0;i<s1.length();i++)
+    {
+        v[s1[i]-'a']++;
+        v[s2[i]-'a']--;
+    }
+    bool ans = false;
+    for(auto x:v){
+        if(x==0){
+            continue;
+        }else{
+            cout<<"NO";
+            ans =true;
+            break;
+        }
+    }
+    if(!ans){
+        cout<<"YES";
+    }
+    
     
 
     
