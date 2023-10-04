@@ -13,27 +13,64 @@ int main()
     string str,ptrn;
     cin>>str>>ptrn;
 
-    vector<int> v;
-
     int n = str.size();
     int m = ptrn.size();
 
-    v.push_back((str[0]-'a')+1);
-
-    for(int i=1;i<str.size();i++){
-        v.push_back((str[i]-'a')+1+v[i-1]);
-    }
 
     int temp = ptrn[0]-'a'+1;
 
     for(int i=1;i<m;i++){
         temp+=ptrn[i]-'a'+1;
     }
+
+    int val = str[0]-'a'+1;
+    for(int i=1;i<m;i++){
+        val+=str[i]-'a'+1;
+    }
+    // cout<<val;
     
 
+    // for(int i = 0 ; i<n-m+1 ; i++){
+    //     if(i!=0){
+    //         val+=str[i+m-1]-'a'+1;
+    //         val-=str[i-1]-'a'+1;
+    //     }
+    //     // cout<<val<<"\n";
+        
+    //     if(temp==val){
+    //         // cout<<i<<endl;
+    //         for(int j=0;j<m;j++){
+    //             if(str[i+j]!=ptrn[j]){
+    //                 break;
+    //             }
+    //             if(j==m-1){
+    //                 cout<<i<<" ";
+    //             }
+    //         }
+    //     }
+    // }
+
+    // better hash function 
+    // d^m-1*ptrn[0]+d^m-2*ptrn[0]....d^0*ptrn[m-1]
+    
     for(int i = 0 ; i<n-m+1 ; i++){
+        if(i!=0){
+            val+=str[i+m-1]-'a'+1;
+            val-=str[i-1]-'a'+1;
+        }
+        // cout<<val<<"\n";
         
-        
+        if(temp==val){
+            // cout<<i<<endl;
+            for(int j=0;j<m;j++){
+                if(str[i+j]!=ptrn[j]){
+                    break;
+                }
+                if(j==m-1){
+                    cout<<i<<" ";
+                }
+            }
+        }
     }
 
     
