@@ -10,7 +10,7 @@ struct Node{
     }
 };
 
-void printList(Node* (head)){
+void printList(Node *head){
 
     cout<<head->data<<" ";
     if(head->next == NULL){
@@ -25,6 +25,20 @@ Node* insertBegin(Node* head,int x){
     temp->next=head;
     return temp;
 }
+Node* insertEnd(Node* head,int x){
+    if(head==NULL){
+        Node *temp = new Node(x);
+        temp->next=head;
+        return temp;
+
+    }
+    Node *curr = head;
+    while(curr->next!=NULL){
+        curr = curr->next;
+    }
+    curr->next=new Node(x);
+    return head;
+}
 
 int main()
 {
@@ -35,15 +49,13 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-
     Node *head = NULL;
-    head = insertBegin(head,10);
-    head = insertBegin(head,20);
-    head = insertBegin(head,30);
+    // head = insertBegin(head,10);
+    // head = insertBegin(head,20);
+    // head = insertBegin(head,30);
+    head = insertEnd(head,0);
+    // head = insertEnd(head,-10);
     printList(head);
-
-
-
 
 
     

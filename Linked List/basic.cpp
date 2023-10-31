@@ -20,6 +20,12 @@ void printList(Node *head){
 
 }
 
+Node* insertBegin(Node* head,int x){
+    Node *temp = new Node(x);
+    temp->next=head;
+    return temp;
+}
+
 int main()
 {
 #ifndef ONLINE_JUDGE
