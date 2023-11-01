@@ -53,23 +53,7 @@ Node *delHead(Node * head){
     delete head;
     return temp; 
 }
-Node *delTail(Node *head){
 
-    if(head==nullptr){
-        return nullptr;
-    }
-    if(head->next==nullptr){
-        delete head;
-        return nullptr;
-    }
-    Node *curr = head;
-    while(curr->next->next!=nullptr){
-        curr=curr->next;
-    }
-    delete curr->next;
-    curr->next=nullptr;
-    return head;
-}
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -78,6 +62,13 @@ int main()
 #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+    Node * head = nullptr;
+    // head  = insertBegin(head , 40);
+    // head  = insertBegin(head , 30);
+    // head  = insertBegin(head , 20);
+    head  = insertBegin(head , 10);
+    head  = delHead(head);
+    printList(head);
 
 
     
