@@ -83,6 +83,7 @@ Node *delTail(Node *head)
     curr->next = nullptr;
     return head;
 }
+
 Node *insertPos(Node *head, int pos, int data)
 {
     if (pos == 1)
@@ -123,5 +124,6 @@ int main()
     head = insertBegin(head, 30);
     head = insertBegin(head, 20);
     head = insertBegin(head, 10);
+    head = insertPos(head, 5, 0);
     printList(head);
 }
