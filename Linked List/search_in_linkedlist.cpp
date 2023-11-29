@@ -108,7 +108,6 @@ Node *insertPos(Node *head, int pos, int data)
     }
     return head;
 }
-
 // int searchll(Node *head,int x){
 //     int cnt = 1;
 //     if(head == nullptr){
@@ -163,5 +162,7 @@ int main()
     head = insertBegin(head, 30);
     head = insertBegin(head, 20);
     head = insertBegin(head, 10);
+    head = insertBegin(head, 0);
     printList(head);
+    cout<<searchll(head,20);
 }

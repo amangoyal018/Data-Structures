@@ -124,6 +124,6 @@ int main()
     head = insertBegin(head, 30);
     head = insertBegin(head, 20);
     head = insertBegin(head, 10);
-    head = insertPos(head, 5, 0);
+    head = insertPos(head, 2, 0);
     printList(head);
 }
