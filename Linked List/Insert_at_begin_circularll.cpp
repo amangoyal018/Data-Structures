@@ -86,8 +86,5 @@ int main()
     head = insertBegin(head , 20);
     head = insertBegin(head , 10);
     head = insertEnd(head,50);
-    head = insertEnd(head,60);
-    head = insertEnd(head,70);
-    
     printList(head);
 }
