@@ -148,48 +148,25 @@ int searchll(Node *head,int x){
         }
     }
 }
-Node* reverse_ll(Node *head){
+
+Node *remove_duplicates(Node *head){
     if(head==nullptr or head->next == nullptr){
         return head;
     }
-    Node *minus = nullptr;
     Node *curr = head;
-    Node *plus = curr->next;
-
-    while(curr != nullptr){
-        curr -> next = minus;
-        minus = curr;
-        curr = plus;
-        if(plus==nullptr){
-            continue;
+    while(curr->next != nullptr){
+        if(curr->data == curr->next->data){
+            Node *temp = curr->next;
+            curr->next = curr->next->next;
+            delete temp;
+        }else{
+            curr = curr->next;
         }
-        plus = curr->next;
     }
-    return minus;
+    return head;
 
 }
-// Node *recursive_reverse_ll(Node *head){
 
-//     if(head->next == nullptr){
-//         return head;
-//     }
-//     Node *rest_head = recursive_reverse_ll(head->next);
-//     head->next->next = head;
-//     head->next = nullptr;
-//     return rest_head;
-// }
-//Method-2
-Node *recursive_reverse_ll(Node *head,Node *prev = nullptr){
-
-    
-    if(head == nullptr){
-        return prev;
-    }
-    Node *next = head -> next;
-    head->next = prev;
-    return recursive_reverse_ll(next , head);
-
-}
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -201,9 +178,19 @@ int main()
 
     Node *head = nullptr;
     head = insertBegin(head, 40);
+    head = insertBegin(head, 40);
+    head = insertBegin(head, 40);
+    head = insertBegin(head, 40);
+    head = insertBegin(head, 30);
+    head = insertBegin(head, 30);
+    head = insertBegin(head, 30);
     head = insertBegin(head, 30);
     head = insertBegin(head, 20);
+    head = insertBegin(head, 20);
     head = insertBegin(head, 10);
-    head = recursive_reverse_ll(head);
     printList(head);
+    head = remove_duplicates(head);
+    cout<<"\n";
+    printList(head);
+
 }

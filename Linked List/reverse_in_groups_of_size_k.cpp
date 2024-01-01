@@ -168,28 +168,20 @@ Node* reverse_ll(Node *head){
     return minus;
 
 }
-// Node *recursive_reverse_ll(Node *head){
+Node *reverse_group_k(Node* head , int k){
 
-//     if(head->next == nullptr){
-//         return head;
-//     }
-//     Node *rest_head = recursive_reverse_ll(head->next);
-//     head->next->next = head;
-//     head->next = nullptr;
-//     return rest_head;
-// }
-//Method-2
-Node *recursive_reverse_ll(Node *head,Node *prev = nullptr){
-
-    
-    if(head == nullptr){
-        return prev;
+    Node *curr = head;
+    while(curr!=nullptr){
+        int cnt = 0;
+        while(cnt<k){
+            cnt++;
+            curr = curr->next;
+        }
     }
-    Node *next = head -> next;
-    head->next = prev;
-    return recursive_reverse_ll(next , head);
+    return head;
 
 }
+
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -200,10 +192,13 @@ int main()
     cin.tie(NULL);
 
     Node *head = nullptr;
+    head = insertBegin(head, 60);
+    head = insertBegin(head, 50);
     head = insertBegin(head, 40);
     head = insertBegin(head, 30);
     head = insertBegin(head, 20);
     head = insertBegin(head, 10);
-    head = recursive_reverse_ll(head);
-    printList(head);
+    head = reverse_group_k(head,3);
+    // printList(head);
+    // cout<<"hello";
 }
