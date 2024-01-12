@@ -148,83 +148,37 @@ int searchll(Node *head,int x){
         }
     }
 }
-
-// Node *reverse_group_k(Node* head , int k){
-
-//     Node *minus = nullptr;
+//Hashing
+// bool detectLoop(Node*head){
 //     Node *curr = head;
-//     Node *initial = curr;
-//     Node *res;
-//     int loop = 0;
-//     while(curr!=nullptr){
-//         int cnt = 0;
-//         minus = nullptr;
-//         while(cnt<k){
-//             loop++;
-//             Node *plus = curr->next;    
-//             curr->next = minus;
-//             minus = curr;
-//             curr = plus;
-//             cnt++;
-//             if(loop==3){
-//                 res = minus;
-//             }
+//     map<Node*,int> m;
+//     while(true){
+//         if(curr == nullptr){
+//             break;
 //         }
-//         // minus = initial;
-//         // break;
+//         if(m.count(curr)==0){
+//             m[curr] = 1;
+//             cout<<curr->data<<"\n";
+//             curr = curr->next;
+//         }else{
+//             return true;
+//         }
 //     }
-//     initial->next = minus;
-//     return res;
-
+//     return false;
 // }
 
-// Node *reverse_group_k(Node* head , int k){
-//     Node *curr = head;
-//     Node *minus = nullptr;
-//     int cnt = 0;
-//     Node *plus = nullptr;
-//     while(curr!=nullptr and cnt<k){
-//         plus = curr->next;
-//         curr->next = minus;
-//         minus = curr;
-//         curr = plus;
-//         cnt++;
-//     }
-//     if(curr == nullptr){
-//         return minus;
-//     }
-//     Node *rest_head = reverse_group_k(plus,k);
-//     head->next = rest_head;
-//     return minus;
-// }
-
-//iterative solution
-Node *reverse_group_k(Node* head , int k){
-    Node *curr = head;
-    bool fisrstPass = true;
-    Node *prevTemp = nullptr;
-
-    while(curr!=nullptr){
-        int cnt = 0;
-        Node *temp = curr;
-        Node *minus = nullptr;
-        while(curr!=nullptr and cnt<k){
-            Node *plus = curr->next;
-            curr->next = minus;
-            minus = curr;
-            curr = plus;
-            cnt++;
-        }
-        if(fisrstPass){
-            prevTemp = temp;
-            head = minus;
-            fisrstPass = false;
-        }else{
-            prevTemp->next = minus;
-            prevTemp = temp;
-        }
+//theta n approach with no auxillary space
+bool detectLoop(Node *head){
+    Node *a = head;
+    Node *b = head;
+    while(a != nullptr and (b != nullptr and b->next != nullptr)){
+            a = a->next;
+            b = b->next->next;
+            if(a == b){
+                return true;
+            }
     }
-    return head;
+    return false;
 }
 
 int main()
@@ -236,17 +190,21 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    Node *head = nullptr;
-    // head = insertBegin(head, 90);
-    head = insertBegin(head, 80);
-    head = insertBegin(head, 70);
-    head = insertBegin(head, 60);
-    head = insertBegin(head, 50);
-    head = insertBegin(head, 40);
-    head = insertBegin(head, 30);
-    head = insertBegin(head, 20);
-    head = insertBegin(head, 10);
-    head = reverse_group_k(head,3);
-    printList(head);
-    // cout<<"hello";
+    Node *head = new Node(10);
+    Node *temp1 = new Node(20);
+    Node *temp2 = new Node(30);
+    Node *temp3 = new Node(40);
+    Node *temp4 = new Node(50);
+    head->next = temp1;
+    temp1->next = temp2;
+    temp2->next = temp3;
+    temp3->next = temp4;
+    temp4->next = temp1;
+    if(detectLoop(head)){
+        cout<<"YES";
+    }else{
+        cout<<"NO";
+    }
+    
+    // printList(head);
 }
