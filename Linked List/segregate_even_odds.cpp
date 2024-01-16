@@ -149,6 +149,49 @@ int searchll(Node *head,int x){
     }
 }
 
+Node *segregate_even_odds(Node *head){
+    bool even = true;
+    bool odd = true;
+
+    Node *head1 = nullptr;
+    Node *head2 = nullptr;
+    Node *e;
+    Node *o;
+
+    Node *curr = head;
+    while(curr!=nullptr){
+        if(curr->data % 2 == 0){
+            if(even){
+                e = curr ;
+                even = false;
+                head1 = curr;
+            }else{
+                e->next = curr;
+                e = e->next;
+            }
+        }else{
+            if(odd){
+                o = curr;
+                odd = false;
+                head2 = curr;
+            }else{
+                o->next = curr;
+                o = o->next;
+            }
+        }
+        curr = curr -> next;
+    }
+    if(!odd and !even){ //both even and odd
+        e -> next = head2;
+        o ->next = nullptr;
+        return head1;
+    }else{
+        return head;
+    }
+
+}
+
+
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -159,12 +202,13 @@ int main()
     cin.tie(NULL);
 
     Node *head = nullptr;
-    head = insertBegin(head, 17);
-    head = insertBegin(head, 15);
-    head = insertBegin(head, 8);
-    head = insertBegin(head, 12);
-    head = insertBegin(head, 10);
     head = insertBegin(head, 5);
     head = insertBegin(head, 4);
+    head = insertBegin(head, 3);
+    head = insertBegin(head, 2);
+    head = insertBegin(head, 1);
+    // printList(head);
+    head = oddEvenList(head);
     printList(head);
+    
 }

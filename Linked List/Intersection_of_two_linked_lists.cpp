@@ -148,7 +148,45 @@ int searchll(Node *head,int x){
         }
     }
 }
+Node *getIntersectionNode(Node *headA, Node *headB) {
+        
+    Node *curr1 = headA;
+    int cnt1 = 0;
+    int cnt2 = 0;
 
+    while(curr1!=nullptr){
+        cnt1++;
+        curr1 = curr1 -> next;
+
+    }
+    Node *curr2 = headB;
+    while(curr2!=nullptr){
+        cnt2++;
+        curr2 = curr2-> next;
+    }
+    curr1 = headA;
+    curr2 = headB;
+    if(cnt1>cnt2){
+        while(cnt1!=cnt2){
+            curr1 = curr1 -> next;
+            cnt1--;
+        }
+    }else{
+        while(cnt1!=cnt2){
+            curr2 = curr2 -> next;
+            cnt2--;
+        }
+    }
+    while(curr1!=nullptr and curr2!=nullptr){
+        if(curr1 == curr2){
+            return curr1;
+        }
+        curr1 = curr1 -> next;
+        curr2 = curr2 -> next;
+    }
+    return nullptr;
+    
+}
 int main()
 {
 #ifndef ONLINE_JUDGE

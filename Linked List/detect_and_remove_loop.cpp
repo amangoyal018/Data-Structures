@@ -148,6 +148,72 @@ int searchll(Node *head,int x){
         }
     }
 }
+//Hashing
+// bool detectLoop(Node*head){
+//     Node *curr = head;
+//     map<Node*,int> m;
+//     while(true){
+//         if(curr == nullptr){
+//             break;
+//         }
+//         if(m.count(curr)==0){
+//             m[curr] = 1;
+//             cout<<curr->data<<"\n";
+//             curr = curr->next;
+//         }else{
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+
+//theta n approach with no auxillary space
+// bool detectLoop(Node *head){
+//     Node *a = head;
+//     Node *b = head;
+//     while(a != nullptr and (b != nullptr and b->next != nullptr)){
+//             a = a->next;
+//             b = b->next->next;
+//             if(a == b){
+//                 return true;
+//             }
+//     }
+//     return false;
+// }
+void removeLoop(Node* head)
+    {
+            Node *a = head;
+            Node *b = head;
+            bool isLoop = false;
+            while(b!=nullptr and b->next!= nullptr){
+                a = a -> next;
+                b = b -> next -> next;
+                if(a==b){
+                    isLoop = true;
+                    break;
+                }
+                // cout<<a->data << " "<< b->data <<"\n";
+            }
+            if(!isLoop){
+                return;
+            }else{
+                // cout << b->data <<"\n";
+                a = head;
+                if(a==b){
+                    do{
+                        a = a -> next;
+                    }while(a -> next !=b);
+                    a -> next = nullptr;
+                    return;
+                }
+                
+                while(a -> next != b -> next){
+                    a = a->next;
+                    b = b->next;
+                }
+                b->next = nullptr;
+            }
+    }
 
 int main()
 {
@@ -158,13 +224,22 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    Node *head = nullptr;
-    head = insertBegin(head, 17);
-    head = insertBegin(head, 15);
-    head = insertBegin(head, 8);
-    head = insertBegin(head, 12);
-    head = insertBegin(head, 10);
-    head = insertBegin(head, 5);
-    head = insertBegin(head, 4);
+    Node *head = new Node(10);
+    Node *temp1 = new Node(20);
+    Node *temp2 = new Node(30);
+    Node *temp3 = new Node(40);
+    Node *temp4 = new Node(50);
+    head->next = temp1;
+    temp1->next = temp2;
+    temp2->next = temp3;
+    temp3->next = temp4;
+    temp4->next = head;
+    // if(detectLoop(head)){
+    //     cout<<"YES";
+    // }else{
+    //     cout<<"NO";
+    // }
+    removeLoop(head);
+    
     printList(head);
 }
