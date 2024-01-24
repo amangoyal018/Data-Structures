@@ -149,6 +149,53 @@ int searchll(Node *head,int x){
     }
 }
 
+// Node *pairwise_swap(Node *head){
+
+//     if(head == nullptr or head-> next == nullptr){
+//         return head;
+//     }
+//     Node *a = head;
+//     Node *b = head->next;
+//     Node *prev = nullptr;
+//     bool isFirst = true;
+//     while(true){
+//         if(prev != nullptr){
+//             prev -> next = b;
+//         }
+
+//         Node *plus = b-> next;
+//         b -> next = a;
+//         if(isFirst){
+//             head = b;
+//             isFirst = false;
+//         }
+//         prev = a;
+//         if(plus == nullptr){
+//             prev->next = nullptr;
+//             break;
+//         }else if(plus->next == nullptr){
+//             prev -> next = plus;
+//             break;
+//         }
+//         a = plus;
+//         b = plus -> next;
+
+//     }
+//     return head;
+// }
+
+//compact code
+Node *pairwise_swap(Node *head){
+
+    if(head == nullptr or head-> next == nullptr){
+        return head;
+    }
+    Node *curr = head->next->next;
+    head->next->next = head;
+    head->next = curr;
+
+}
+
 
 int main()
 {
@@ -160,12 +207,12 @@ int main()
     cin.tie(NULL);
 
     Node *head = nullptr;
-    head = insertBegin(head, 3);
-    head = insertBegin(head, 4);
-    head = insertBegin(head, 2);
-    head = insertBegin(head, 4);
     head = insertBegin(head, 6);
     head = insertBegin(head, 5);
+    head = insertBegin(head, 4);
+    head = insertBegin(head, 3);
+    head = insertBegin(head, 2);
+    head = insertBegin(head, 1);
+    head = pairwise_swap(head);
     printList(head);
-    ;
 }

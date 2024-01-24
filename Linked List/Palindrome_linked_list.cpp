@@ -148,6 +148,54 @@ int searchll(Node *head,int x){
         }
     }
 }
+Node *recursive_reverse_ll(Node *head){
+
+    if(head->next == nullptr){
+        return head;
+    }
+    Node *rest_head = recursive_reverse_ll(head->next);
+    head->next->next = head;
+    head->next = nullptr;
+    return rest_head;
+}
+
+bool isPalindrome(Node *head ){
+
+    int cnt = 1;
+    Node *curr = head;
+    while(curr!=nullptr){
+        curr = curr->next;
+        cnt++;
+    }
+    cnt/=2;
+    curr = head;
+    Node *tail;
+    while(cnt){
+        cnt--;
+        if(cnt==0){
+            tail = curr;
+        }
+        curr = curr->next;
+    }
+    Node *head2 = recursive_reverse_ll(curr);
+    tail -> next = head2;
+    Node *a = head;
+    Node *b = tail->next;
+    tail->next = nullptr;
+
+    while(b!=nullptr){
+        if(a->data == b->data){
+            a = a->next;
+            b = b->next;
+        }else{
+            break;
+        }
+    }
+    return (b==nullptr);
+
+    
+
+}
 
 
 int main()
@@ -160,12 +208,12 @@ int main()
     cin.tie(NULL);
 
     Node *head = nullptr;
-    head = insertBegin(head, 3);
-    head = insertBegin(head, 4);
+    head = insertBegin(head, 1);
     head = insertBegin(head, 2);
-    head = insertBegin(head, 4);
-    head = insertBegin(head, 6);
-    head = insertBegin(head, 5);
+    head = insertBegin(head, 3);
+    head = insertBegin(head, 3);
+    head = insertBegin(head, 2);
+    head = insertBegin(head, 1);
+    cout<<isPalindrome(head);
     printList(head);
-    ;
 }
