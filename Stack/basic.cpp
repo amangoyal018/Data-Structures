@@ -11,9 +11,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    cout << int('1' + '2');
-     
-
+    
     
 
     
