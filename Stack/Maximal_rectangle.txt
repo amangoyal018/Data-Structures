@@ -1,65 +1,93 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int maximalRectangle(vector<vector<char>>& matrix) {
+#define int long long
+#define ll long long
+#define ld long double
+#define vecll vector<ll>
+#define pb push_back
+#define po pop_back
+#define all(x) (x).begin(), (x).end()
+#define rall(x) x.rbegin(), (x).rend()
+#define sz(x) (ll)(x).size()
+#define bye cout << endl
+#define rr return
+#define di(x) \
+    ll x;     \
+    cin >> x
+#define dbg(a) cout << a << endl
+;
+const ll MOD = 1000000007;
+string abc = "abcdefghijklmnopqrstuvwxyz";
 
-    vector<vector<int>> v(matrix.size());
-
-    for (int i = 0; i < matrix.size(); i++) {
-        for (int j = 0; j < matrix[i].size(); j++) {
-            v[i].push_back(matrix[i][j] - '0');
-            if (i > 0 and v[i][j] != 0) {
-                v[i][j] += v[i - 1][j];
-            }
-        }
-    }
-    int res = 0;
-    for (int i = 0; i < v.size(); i++) {
-        stack<int> s;
-        int n = v[i].size();
-
-        for (int j = 0; j < v[i].size(); j++) {
-            // cout<<i<<"\n";
-            while (!s.empty() and v[i][s.top()] >= v[i][j]) {
-                int temp = s.top();
-                s.pop();
-                int curr;
-                if (s.empty()) {
-                    curr = (v[i][temp]) * (j);
-                } else {
-                    curr = (v[i][temp]) * (j - s.top() - 1);
-                }
-                res = max(res, curr);
-            }
-            s.push(j);
-        }
-        while (!s.empty()) {
-            int temp = s.top();
-            s.pop();
-            int curr;
-            if (s.empty()) {
-                curr = (v[i][temp]) * (n);
-            } else {
-                curr = (v[i][temp]) * (n - s.top() - 1);
-            }
-            res = max(res, curr);
-        }
-    }
-    return res;
-}
-int main()
+void solve()
 {
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
+    di(n);
+    unordered_map<int, int> freq;
+    int ct = 0, check = 2147483647;
+    vector<int> v(n);
+
+    for (auto &&i : v)
+    {
+        cin >> i;
+    }
+
+    for (auto &&i : v)
+    {
+        int rem = check - i;
+        if (freq[rem] > 0)
+        {
+            freq[rem]--;
+        }
+        else
+        {
+            freq[i]++;
+            ct++;
+        }
+    }
+
+    cout << ct << endl;
+
+    // vector<ll> v(n);
+
+    // // unordered_set<int> s;
+    // bool flag = true;
+    // for (int i = 0; i < n; ++i)
+    // {
+    //     cin >> v[i];
+    //     if (v[i] == 0 || v[i] == 2147483647)
+    //     {
+    //         flag = true;
+    //     }
+    //     else
+    //     {
+    //         flag = false;
+    //     }
+    // }
+
+    // if (flag && v.size() > 2)
+    // {
+    //     cout << 2 << endl;
+    //     // sort(v.begin(), v.end());
+    // }
+    // else
+    // {
+    //     cout << minGroups(v) << "\n";
+    // }
+}
+
+signed main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
-    cout << int('1' + '2');
-     
-
-    
-
-    
+    cout.tie(NULL);
+    ll t = 1;
+    ll g = 1;
+    cin >> t;
+    while (t--)
+    {
+        // cout << g++<<endl;
+        solve();
+    }
+    return 0;
 }
